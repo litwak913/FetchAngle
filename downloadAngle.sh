@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Downloading"
-#curl -s "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json" | jq -r ".channels.Stable.downloads.chrome[].url" | parallel wget {}
+curl -s "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json" | jq -r ".channels.Stable.downloads.chrome[].url" | parallel wget {}
 
 echo "Extract"
 OLDIFS="$IFS"
@@ -31,10 +31,10 @@ unzip -j chrome-win64.zip "$i" -d windows64
 done
 
 echo "Packaging"
-printf "# SHA256\n\`\`\`\n" > Info.md
+printf "# SHA256\n\`\`\`\n" > $GITHUB_STEP_SUMMARY
 for s in **/lib*; do
-echo `sha256sum $s` >> Info.md
+echo `sha256sum $s` >> $GITHUB_STEP_SUMMARY
 done
-printf "\n\`\`\`\n" >> Info.md
+printf "\n\`\`\`\n" >> $GITHUB_STEP_SUMMARY
 
-zip -9 -r angle.zip windows32 windows64 macosx64 macosarm64 Info.md
+zip -9 -r angle.zip windows32 windows64 macosx64 macosarm64
