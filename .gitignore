@@ -1,0 +1,9 @@
+chrome*
+windows32/
+windows64/
+macosx64/
+macosarm64/
+
+Info.md
+angle.zip
+

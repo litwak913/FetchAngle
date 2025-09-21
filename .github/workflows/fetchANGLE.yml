@@ -1,0 +1,17 @@
+name: FetchANGLE
+
+on: workflow_dispatch
+
+jobs:
+    fetch:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone Repo
+              uses: actions/checkout@v4
+            - name: Fetch Angle
+              run: bash ./downloadAngle.sh
+            - name: Upload Release
+              uses: softprops/action-gh-release@v2
+              with:
+                files: angle.zip
+                body_path: Info.md
