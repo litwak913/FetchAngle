@@ -14,4 +14,5 @@ jobs:
               uses: softprops/action-gh-release@v2
               with:
                 files: angle.zip
+                tag_name: angle
                 body_path: Info.md
