@@ -10,13 +10,8 @@ jobs:
               uses: actions/checkout@v4
             - name: Fetch Angle
               run: bash ./downloadAngle.sh
-            - name: Upload
-              uses: actions/upload-artifact@v4
+            - name: Upload Release
+              uses: softprops/action-gh-release@v2
               with:
-                name: ANGLE
-                path: |
-                    windows32/
-                    windows64/
-                    macosx64/
-                    macosarm64/
-                    
+                files: angle.zip
+                body_path: Info.md

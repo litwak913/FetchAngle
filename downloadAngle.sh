@@ -31,8 +31,8 @@ unzip -j chrome-win64.zip "$i" -d windows64
 done
 
 echo "Packaging"
-printf "# SHA256\n\`\`\`\n" > $GITHUB_STEP_SUMMARY
+printf "# SHA256\n\`\`\`\n" > Info.md
 for s in **/lib*; do
-echo `sha256sum $s` >> $GITHUB_STEP_SUMMARY
+echo `sha256sum $s` >> Info.md
 done
-printf "\n\`\`\`\n" >> $GITHUB_STEP_SUMMARY
+printf "\n\`\`\`\n" >> Info.md
