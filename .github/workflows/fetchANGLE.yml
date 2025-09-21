@@ -5,6 +5,8 @@ on: workflow_dispatch
 jobs:
     fetch:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
         steps:
             - name: Clone Repo
               uses: actions/checkout@v4

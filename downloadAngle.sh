@@ -36,3 +36,5 @@ for s in **/lib*; do
 echo `sha256sum $s` >> Info.md
 done
 printf "\n\`\`\`\n" >> Info.md
+
+zip -9 -r angle.zip windows32 windows64 macosx64 macosarm64 Info.md
