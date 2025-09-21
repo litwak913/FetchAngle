@@ -14,4 +14,9 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: ANGLE
-                path: angle.zip
+                path: |
+                    windows32/
+                    windows64/
+                    macosx64/
+                    macosarm64/
+                    

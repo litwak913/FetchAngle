@@ -36,5 +36,3 @@ for s in **/lib*; do
 echo `sha256sum $s` >> $GITHUB_STEP_SUMMARY
 done
 printf "\n\`\`\`\n" >> $GITHUB_STEP_SUMMARY
-
-zip -9 -r angle.zip windows32 windows64 macosx64 macosarm64
