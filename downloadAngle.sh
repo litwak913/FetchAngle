@@ -11,15 +11,15 @@ macARMANGLE=(`unzip -Z1 chrome-mac-arm64.zip | grep GL`)
 winX32ANGLE=(`unzip -Z1 chrome-win32.zip | grep GL`)
 winX64ANGLE=(`unzip -Z1 chrome-win64.zip | grep GL`)
 IFS="$OLDIFS"
-rm -rf windows32 windows64 macosx64 macosarm64
+rm -rf windows32 windows64 macosx64 macosxarm64
 
-mkdir windows32 windows64 macosx64 macosarm64
+mkdir windows32 windows64 macosx64 macosxarm64
 
 unzip -j chrome-mac-x64.zip "${macX64ANGLE[0]}" -d macosx64
 unzip -j chrome-mac-x64.zip "${macX64ANGLE[1]}" -d macosx64
 
-unzip -j chrome-mac-arm64.zip "${macARMANGLE[0]}" -d macosarm64
-unzip -j chrome-mac-arm64.zip "${macARMANGLE[1]}" -d macosarm64
+unzip -j chrome-mac-arm64.zip "${macARMANGLE[0]}" -d macosxarm64
+unzip -j chrome-mac-arm64.zip "${macARMANGLE[1]}" -d macosxarm64
 
 
 for i in ${winX32ANGLE[@]}; do
@@ -37,4 +37,4 @@ echo `sha256sum $s` >> Info.md
 done
 printf "\n\`\`\`\n" >> Info.md
 
-zip -9 -r angle.zip windows32 windows64 macosx64 macosarm64 Info.md
+zip -9 -r angle.zip windows32 windows64 macosx64 macosxarm64 Info.md
